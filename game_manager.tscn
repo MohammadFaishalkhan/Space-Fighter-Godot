@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://bcf4u4b3cuxwa"]
+
+[ext_resource type="Texture2D" uid="uid://dee617xqbb43h" path="res://assets/background-black.png" id="1_o2178"]
+[ext_resource type="Script" uid="uid://cljafsi3d1h76" path="res://game_manager.gd" id="1_shwjl"]
+[ext_resource type="PackedScene" uid="uid://dlj4besva8cgr" path="res://entities/player/player.tscn" id="2_d5upp"]
+[ext_resource type="Texture2D" uid="uid://dk82oqgsq8d4q" path="res://assets/horizontal_bar_yellow.png" id="3_d5upp"]
+[ext_resource type="PackedScene" uid="uid://b5kijtpne30jj" path="res://entities/enemy_spawn/enemies_spawner.tscn" id="4_vk86k"]
+[ext_resource type="Script" uid="uid://dey34cl8khra" path="res://entities/enemy_spawn/enemies_spawner.gd" id="5_shwjl"]
+[ext_resource type="PackedScene" uid="uid://c6qysc8rd2fj8" path="res://entities/replay/replay_sprite.tscn" id="7_eakoi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cgvt3"]
+size = Vector2(400, 20)
+
+[node name="GameManager" type="Node2D" unique_id=1176309001]
+script = ExtResource("1_shwjl")
+
+[node name="BackgroundSprite" type="Sprite2D" parent="." unique_id=850982012]
+position = Vector2(200, 312)
+scale = Vector2(1, 1.5700003)
+texture = ExtResource("1_o2178")
+
+[node name="Player" parent="." unique_id=588794503 instance=ExtResource("2_d5upp")]
+position = Vector2(192, 552)
+
+[node name="Boundary" type="Area2D" parent="." unique_id=1832484521]
+position = Vector2(192, 448)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary" unique_id=547223037]
+position = Vector2(6, 32)
+shape = SubResource("RectangleShape2D_cgvt3")
+
+[node name="HorizontalBarYellow" type="Sprite2D" parent="Boundary" unique_id=945145439]
+position = Vector2(7.9999895, 32.000008)
+scale = Vector2(3.076923, 1.5999981)
+texture = ExtResource("3_d5upp")
+
+[node name="Bullet" type="Node" parent="." unique_id=1767260258]
+
+[node name="Enemies" type="Node" parent="." unique_id=1738529219]
+
+[node name="EnemiesSpawner" parent="." unique_id=1640293099 instance=ExtResource("4_vk86k")]
+script = ExtResource("5_shwjl")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1778698031]
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer" unique_id=509013536]
+process_mode = 3
+custom_minimum_size = Vector2(64, 64)
+offset_left = 344.0
+offset_top = 8.0
+offset_right = 384.0
+offset_bottom = 48.0
+
+[node name="ReplaySprite" parent="CanvasLayer/TextureButton" unique_id=1285103194 instance=ExtResource("7_eakoi")]
+position = Vector2(8, 26)
+scale = Vector2(0.09375002, 0.085937485)
