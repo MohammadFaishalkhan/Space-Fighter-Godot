@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://fhtplr1mqybu"]
+
+[ext_resource type="Script" uid="uid://c0it5e86axpxe" path="res://entities/enemies/enemiesgeneral.gd" id="1_fcah8"]
+[ext_resource type="Texture2D" uid="uid://w26sey3ggj64" path="res://assets/EnemyGeneral.png" id="1_kwfda"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fc8v4"]
+bg_color = Color(0.22570157, 0.70805526, 0.34653234, 1)
+
+[node name="Area2D" type="Area2D" unique_id=547562162]
+script = ExtResource("1_fcah8")
+
+[node name="EnemyGeneral" type="Sprite2D" parent="." unique_id=72669489]
+rotation = 3.1415927
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_kwfda")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1378185820]
+polygon = PackedVector2Array(0, 0, 48, -40, 32, 24, 24, 0, 16, 24, 0, 72, -16, 32, -24, 0, -32, 32, -48, -32)
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1066288188]
+offset_left = -40.0
+offset_top = -88.0
+offset_right = 40.0
+offset_bottom = -61.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_fc8v4")

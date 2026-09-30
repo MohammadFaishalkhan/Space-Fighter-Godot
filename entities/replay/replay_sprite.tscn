@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c6qysc8rd2fj8"]
+
+[ext_resource type="Texture2D" uid="uid://cxaqrta4fwsic" path="res://assets/instant.png" id="1_qdnjf"]
+
+[node name="ReplaySprite" type="Sprite2D" unique_id=1285103194]
+position = Vector2(360, 32)
+scale = Vector2(0.13281249, 0.109375)
+texture = ExtResource("1_qdnjf")
