@@ -54,3 +54,11 @@ offset_bottom = 48.0
 [node name="ReplaySprite" parent="CanvasLayer/TextureButton" unique_id=1285103194 instance=ExtResource("7_eakoi")]
 position = Vector2(8, 26)
 scale = Vector2(0.09375002, 0.085937485)
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer" unique_id=1845339661]
+offset_left = 8.0
+offset_top = 14.0
+offset_right = 99.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 24
+text = "Score: 0"
