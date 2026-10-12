@@ -47,7 +47,28 @@ func _spawn_enemies_general():
 #func _process(delta: float) -> void:
 	#pass
 	
-func _the_end(body:Node):
-	if body is Enemy or body is enemiesgeneral:
-		get_tree().set_pause(true)
+#func _the_end(body:Node):
+func _the_end(area: Area2D):
+	## Ignore bullets touching the boundary
+	#if area.name == "Bullet" or area.get_parent().name == "Bullet":
+		#area.queue_free()
+		#return
+	# Ignore bullets completely—let bullet.gd handle its own lifecycle
+	if area.name.begins_with("Bullet") or area.get_parent().name == "Bullet":
+		return
+		
+		
+	# Only subtract a life if an Enemy or Boss reaches the boundary
+	if area is Enemy or area is enemiesgeneral or area.get_parent() is enemiesgeneral: #or area.name == "enemiesgeneral":
+		var player = get_parent().get_node_or_null("Player")
+		#var player = get_tree().root.find_child("player", true, false)
+	
+		if player and player.has_method("take_damage"):
+			player.take_damage()
+	
+	#if body is Enemy or body is enemiesgeneral:
+		#get_tree().set_pause(true)
+		#body.queue_free()
+	#if area:
+		area.queue_free()
 	

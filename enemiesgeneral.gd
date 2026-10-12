@@ -1,5 +1,5 @@
-extends Area2D
 class_name enemiesgeneral
+extends Area2D
 
 var speed:int = 140
 var health:int = 3

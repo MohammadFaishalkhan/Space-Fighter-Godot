@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b5kijtpne30jj" path="res://entities/enemy_spawn/enemies_spawner.tscn" id="4_vk86k"]
 [ext_resource type="Script" uid="uid://dey34cl8khra" path="res://entities/enemy_spawn/enemies_spawner.gd" id="5_shwjl"]
 [ext_resource type="PackedScene" uid="uid://c6qysc8rd2fj8" path="res://entities/replay/replay_sprite.tscn" id="7_eakoi"]
+[ext_resource type="Texture2D" uid="uid://bcr6j32f8h36l" path="res://assets/heart.png" id="8_8jrwq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cgvt3"]
 size = Vector2(400, 20)
@@ -62,3 +63,48 @@ offset_right = 99.0
 offset_bottom = 48.0
 theme_override_font_sizes/font_size = 24
 text = "Score: 0"
+
+[node name="HeartContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=532763843]
+offset_left = 152.0
+offset_top = 8.0
+offset_right = 256.0
+offset_bottom = 56.0
+
+[node name="Heart1" type="TextureRect" parent="CanvasLayer/HeartContainer" unique_id=994690794]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("8_8jrwq")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Heart2" type="TextureRect" parent="CanvasLayer/HeartContainer" unique_id=1819651742]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("8_8jrwq")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Heart3" type="TextureRect" parent="CanvasLayer/HeartContainer" unique_id=70074099]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("8_8jrwq")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="GameOverPanel" type="Panel" parent="CanvasLayer" unique_id=2129614287]
+process_mode = 3
+visible = false
+offset_left = 136.0
+offset_top = 256.0
+offset_right = 238.0
+offset_bottom = 286.0
+
+[node name="Label" type="Label" parent="CanvasLayer/GameOverPanel" unique_id=1182434906]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 108.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0.96460533, 0.24425875, 0.12223281, 1)
+text = "GAME OVER!"
+horizontal_alignment = 1
+vertical_alignment = 1
