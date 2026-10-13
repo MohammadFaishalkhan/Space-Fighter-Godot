@@ -3,7 +3,7 @@ var enemy_scene = preload("res://entities/enemies/enemy.tscn")
 var enemies_general_scene = preload("res://entities/enemies/enemiesgeneral.tscn")
 
 var kill_count:int = 0
-var kill_until_enemies_general:int = 4
+var kill_until_enemies_general:int = 5
 
 var score:int = 0
 @onready var score_label = get_parent().get_node_or_null("CanvasLayer/ScoreLabel")
