@@ -20,9 +20,12 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.name == "Boundary" or area.name == "Player" or area.get_parent().name == "Bullet": # or area.is_in_group("bullets"):
 		return
 		
+	var explosion_sfx = get_tree().root.find_child("ExplosionSound", true, false)
+	
 	# 1. Boss handling (Boss has take_damage method)
 	if area.has_method("take_damage"):
 		area.take_damage()# Destroy bullet
+		if explosion_sfx: explosion_sfx.play()
 		queue_free() # Otherwise check if it's a regular enemy
 		
 	# 2. Regular enemy handling
@@ -31,6 +34,7 @@ func _on_area_entered(area: Area2D) -> void:
 		var spawner = get_tree().root.find_child("EnemiesSpawner", true, false)
 		if spawner and spawner.has_method("register_enemy_killed"):
 			spawner.register_enemy_killed()
+		if explosion_sfx: explosion_sfx.play()
 		area.queue_free() # Regular enemy dies in 1 hit
 		queue_free()# Destroy bullet
 	

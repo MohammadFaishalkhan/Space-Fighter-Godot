@@ -33,6 +33,10 @@ func _process(delta):
 		bullet_instance.position.y = position.y-25
 		get_parent().get_node("Bullet").add_child(bullet_instance)		
 		
+		var laser = get_node_or_null("../LaserSound")
+		if laser: 
+				laser.play()
+		
 		
 	if Input.is_action_pressed("slide_left"):
 		direction=-1
